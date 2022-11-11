@@ -1,7 +1,10 @@
 import React from 'react';
-import { GithubContext } from '../context/context';
-import styled from 'styled-components';
 import { useContext } from 'react';
+
+import { GithubContext } from '../context/context';
+
+import styled from 'styled-components';
+
 
 const Followers = () => {
   const { followers } = useContext(GithubContext);
@@ -82,4 +85,5 @@ const Wrapper = styled.article`
     }
   }
 `;
+
 export default Followers;

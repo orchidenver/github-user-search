@@ -1,9 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
-import { MdSearch } from 'react-icons/md';
-import { GithubContext } from '../context/context';
 import { useState } from 'react';
 import { useContext } from 'react';
+
+import styled from 'styled-components';
+
+import { MdSearch } from 'react-icons/md';
+import { GithubContext } from '../context/context';
+
 const Search = () => {
   const [user, setUser] = useState('');
   const { requests, error, loading, searchGithubUser } = useContext(GithubContext);
@@ -14,7 +17,7 @@ const Search = () => {
     </ErrorWrapper>
   );
 
-  function onSubmitHandle(e) {
+  function onSubmitHandler(e) {
     e.preventDefault();
 
     if (user) {
@@ -32,7 +35,7 @@ const Search = () => {
     <section className="section">
       <Wrapper className='section-center'>
         {errorMessageBlock}
-        <form onSubmit={onSubmitHandle}>
+        <form onSubmit={onSubmitHandler}>
           <div className="form-control" >
             <MdSearch />
             <input type="text" placeholder='enter github user' onChange={onChangeHandler} value={user} />
@@ -130,4 +133,5 @@ const ErrorWrapper = styled.article`
     letter-spacing: var(--spacing);
   }
 `;
+
 export default Search;
