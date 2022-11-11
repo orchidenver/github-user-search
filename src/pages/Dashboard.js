@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { Info, Repos, User, Search, Navbar } from '../components';
 
-import loadingImage from '../images/preloader.gif';
+import loader from '../images/loader.gif';
 
 import { GithubContext } from '../context/context';
 
@@ -15,7 +15,7 @@ const Dashboard = () => {
       <main>
         <Navbar />
         <Search />
-        <img className='loading-img' src={loadingImage} alt="loading information" />
+        <img className='loading-img' src={loader} alt="loading information" />
       </main>
     )
   }

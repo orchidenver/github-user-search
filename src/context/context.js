@@ -20,7 +20,7 @@ function GithubProvider({ children }) {
         // clear previous error
         toggleError();
         setLoading(true);
-
+        console.log('searching');
         const response = await axios(`${rootUrl}/users/${user}`)
             .catch(err => console.log(err));
 

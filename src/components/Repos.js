@@ -107,7 +107,6 @@ const Repos = () => {
       <ChartComponent key={i} data={data} type={type} chart={chart} />
     )
   });
-  console.log(charts);
 
   return (
     <section className="section">
