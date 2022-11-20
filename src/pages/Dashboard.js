@@ -12,15 +12,7 @@ import { GithubContext } from '../context/context';
 const Dashboard = () => {
   const { loading } = useContext(GithubContext);
 
-  const ifLoadingContent = loading ? (
-    <img className='loading-img' src={loader} alt="loading information" />
-  ) : (
-    <>
-      <Info />
-      <User />
-      <Repos />
-    </>
-  );
+  const ifLoadingContent = ;
 
   // comment
 
@@ -40,7 +32,15 @@ const Dashboard = () => {
       <main>
         <Navbar></Navbar>
         <Search />
-        {ifLoadingContent}
+        {loading ? (
+          <img className='loading-img' src={loader} alt="loading information" />
+        ) : (
+          <>
+            <Info />
+            <User />
+            <Repos />
+          </>
+        )}
       </main>
     </>
   );
