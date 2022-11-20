@@ -12,10 +12,6 @@ import { GithubContext } from '../context/context';
 const Dashboard = () => {
   const { loading } = useContext(GithubContext);
 
-  const ifLoadingContent = ;
-
-  // comment
-
   return (
     <>
       <Helmet>
