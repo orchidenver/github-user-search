@@ -1,7 +1,10 @@
 import React from 'react';
-import { GithubContext } from '../context/context';
-import styled from 'styled-components';
 import { useContext } from 'react';
+
+import { GithubContext } from '../context/context';
+
+import styled from 'styled-components';
+
 
 const Followers = () => {
   const { followers } = useContext(GithubContext);
@@ -54,11 +57,12 @@ const Wrapper = styled.article`
   }
   .followers {
     overflow: scroll;
-    height: 260px;
+    height: 315px;
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
     gap: 1.25rem 1rem;
     padding: 1rem 2rem;
+    overflow-x: hidden;
   }
   article {
     transition: var(--transition);
@@ -82,4 +86,5 @@ const Wrapper = styled.article`
     }
   }
 `;
+
 export default Followers;

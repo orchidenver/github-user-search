@@ -1,9 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
+
 import { GithubContext } from '../context/context';
 import styled from 'styled-components';
+
 import { GoRepo, GoGist } from 'react-icons/go';
 import { FiUsers, FiUserPlus } from 'react-icons/fi';
-import { useContext } from 'react';
+
 
 const UserInfo = () => {
   const { githubUser: { public_repos, followers, following, public_gists } } = useContext(GithubContext);

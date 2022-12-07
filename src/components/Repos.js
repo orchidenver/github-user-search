@@ -1,8 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
+
 import styled from 'styled-components';
+
 import { GithubContext } from '../context/context';
-import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
+
+import ChartComponent from './ChartComponent';
+
 const Repos = () => {
   const { repos } = useContext(GithubContext);
 
@@ -50,28 +54,64 @@ const Repos = () => {
   stars = Object.values(stars).slice(-5).reverse();
   forks = Object.values(forks).slice(-5).reverse();
 
-  const chartData = [
+  const options = [
     {
-      label: "HTML",
-      value: "9"
+      type: "pie3d",
+      data: mostUsed,
+      chart: {
+        caption: "Languages",
+        theme: "fusion",
+        decimals: 0,
+        pieRadius: '45%',
+      }
     },
     {
-      label: "CSS",
-      value: "6"
+      type: "column3d",
+      data: stars,
+      chart: {
+        caption: "Most Popular",
+        yAxisName: 'Stars',
+        xAxisName: 'Repos',
+        yAxisNameFontSize: '16px',
+        xAxisNameFontSize: '16px',
+      }
     },
     {
-      label: "JavaScript",
-      value: "85"
+      type: "doughnut2d",
+      data: mostPopular,
+      chart: {
+        caption: "Stars Per Language",
+        decimals: 0,
+        pieRadius: '45%',
+        showPercentValues: 0,
+        theme: 'candy'
+      }
+    },
+    {
+      type: "bar3d",
+      data: forks,
+      chart: {
+        caption: "Most Forked",
+        yAxisName: 'Forks',
+        xAxisName: 'Repos',
+        yAxisNameFontSize: '16px',
+        xAxisNameFontSize: '16px',
+      }
     },
   ];
+
+  const charts = options.map((item, i) => {
+    const { type, data, chart } = item;
+
+    return (
+      <ChartComponent key={i} data={data} type={type} chart={chart} />
+    )
+  });
 
   return (
     <section className="section">
       <Wrapper className='section-center'>
-        <Pie3D data={mostUsed} />
-        <Column3D data={stars} />
-        <Doughnut2D data={mostPopular} />
-        <Bar3D data={forks} />
+        {charts}
       </Wrapper>
     </section>
   );
